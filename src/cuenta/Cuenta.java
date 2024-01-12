@@ -13,8 +13,10 @@ private String nombre;
 private String cuenta;
 private int Saldo;
 private double TipoInteres;
+private static int numCuentas=0;
 
     public Cuenta() {
+        numCuentas++;
     }
 
     public Cuenta(String nombre, String cuenta, int Saldo, double TipoInteres) {
@@ -22,6 +24,7 @@ private double TipoInteres;
         this.cuenta = cuenta;
         this.Saldo = Saldo;
         this.TipoInteres = TipoInteres;
+        numCuentas++;
     }
 
     public String getNombre() {
@@ -54,6 +57,10 @@ private double TipoInteres;
 
     public void setTipoInteres(double TipoInteres) {
         this.TipoInteres = TipoInteres;
+    }
+
+    public static int getNumCuentas() {
+        return numCuentas;
     }
 
 

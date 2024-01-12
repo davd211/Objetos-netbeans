@@ -41,7 +41,7 @@ public class mainCuenta {
             Cuenta c1 = new Cuenta(nombre, cuenta, saldo, interes);
 
         }
-        System.out.println("Numero de cuentas creadas es "+numcuentas);
+        System.out.println("Numero de cuentas creadas es "+Cuenta.getNumCuentas());
 
     }
 
