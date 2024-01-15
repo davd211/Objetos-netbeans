@@ -16,6 +16,8 @@ public class mainrectangulo {
     public static void main(String[] args) {
 
         Rectangulo r = new Rectangulo();
+        
+        System.out.println(r.toString());
 
     }
 
