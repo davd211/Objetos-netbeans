@@ -9,90 +9,21 @@ package Fecha;
  * @author David.P
  */
 public class Fecha {
+
+   
+
     private int dia;
     private int mes;
-    private int año;
+    private int anno;
 
     public Fecha() {
     }
 
-    public Fecha(int dia, int mes, int año) {
+    public Fecha(int dia, int mes, int anno) {
         this.dia = dia;
         this.mes = mes;
-        this.año = año;
+        this.anno = anno;
     }
-    
-    
-    public boolean esCorrecta() {
-        if (dia < 1 || dia > 31) {
-            return false;
-        }
-        if (mes < 1 || mes > 12) {
-            return false;
-        }
-        if (año < 1) {
-            return false;
-        }
-        // Validar días de febrero
-        if (mes == 2 && dia > 28) {
-            if (año % 4 == 0 && (año % 100 != 0 || año % 400 == 0)) {
-                return dia <= 29;
-            } else {
-                return dia <= 28;
-            }
-        }
-        return true;
-    }
-
-   public void diaSiguiente() {
-    if (esCorrecta()) {
-        switch (mes) {
-            case 1:
-            case 3:
-            case 5:
-            case 7:
-            case 8:
-            case 10:
-            case 12:
-                dia++;
-                if (dia > 31) {
-                    dia = 1;
-                    mes++;
-                }
-                break;
-            case 4:
-            case 6:
-            case 9:
-            case 11:
-                dia++;
-                if (dia > 30) {
-                    dia = 1;
-                    mes++;
-                }
-                break;
-            case 2:
-                if (esBisiesto()) {
-                    dia++;
-                    if (dia > 29) {
-                        dia = 1;
-                        mes++;
-                    }
-                } else {
-                    dia++;
-                    if (dia > 28) {
-                        dia = 1;
-                        mes++;
-                    }
-                }
-                break;
-        }
-    }
-}
-public boolean esBisiesto() {
-    return año % 4 == 0 && (año % 100 != 0 || año % 400 == 0);
-}
-
-
 
     public int getDia() {
         return dia;
@@ -110,21 +41,126 @@ public boolean esBisiesto() {
         this.mes = mes;
     }
 
-    public int getAño() {
-        return año;
+    public int getAnno() {
+        return anno;
     }
 
-    public void setAño(int año) {
-        this.año = año;
+    public void setAnno(int anno) {
+        this.anno = anno;
+    }
+
+    public boolean fechaCorrecta() {
+
+        boolean fc = false;
+
+        switch (this.mes) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                if (0 > dia | dia < 32) {
+                    fc = true;
+
+                } else {
+
+                    fc = false;
+                }
+
+                break;
+
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                if (0 > dia | dia < 31) {
+                    fc = true;
+
+                } else {
+
+                    fc = false;
+                }
+
+                break;
+            case 2:
+                if (0 > dia | dia < 29) {
+                    fc = true;
+
+                } else {
+
+                    fc = false;
+                }
+
+                break;
+        }
+
+        return fc;
+    }
+
+    public void diaSiguiente() {
+        switch (this.mes) {
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+
+                if (0 > dia || dia < 31) {
+                    dia++;
+
+                } else {
+                    dia = 1;
+                    mes++;
+
+                }
+
+                break;
+
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                if (dia > 0 | dia < 3) {
+                    dia++;
+
+                } else {
+
+                    dia = 1;
+                    mes++;
+                }
+
+                break;
+            case 2:
+                if (0 > dia | dia < 28) {
+                    dia++;
+                } else {
+
+                    dia = 1;
+                    mes++;
+                }
+
+                break;
+            case 12:
+                if (0 > dia | dia < 31) {
+                    dia++;
+
+                } else {
+                    dia = 1;
+                    mes=1;
+                    anno++;
+
+                }
+        }
+        
+        
     }
 
     @Override
     public String toString() {
-        return  dia + " de " + mes + " de " + año ;
+        return dia + " de " + mes + " de " + anno;
     }
 
-   
-    //1░de░1░de░2023⁋
-
-    
 }

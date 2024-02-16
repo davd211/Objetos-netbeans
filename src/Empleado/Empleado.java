@@ -20,7 +20,7 @@ public class Empleado {
     private String dni;
     private String nombre;
     private double sueldo;
-    private static int numEmpleados = 0;
+    public static int numEmpleados = 0;
 
     public String getDni() {
         return dni;
