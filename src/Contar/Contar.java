@@ -67,7 +67,31 @@ public class Contar {
     public String toString() {
         return "Contar{" + "contador=" + contador + '}';
     }
+
+//    @Override
+//    public boolean equals(Object obj) {
+//        Contar contarComparacion = (Contar)obj;
+//        return this.getClass().equals(contarComparacion.getClass()); 
+//    }
+
+    @Override
+    public boolean equals(Object obj) {
+        
+        if (obj instanceof Contar ) {
+            Contar contarComparacio = (Contar)obj;
+            if (this.getClass().equals(contarComparacio.getClass())) 
+            {
+                return true;
+            }else{
+                    return false;
+                    }
+            
+        }else {
+        return false;
+        }
+    }
      
 
+    
     
 }

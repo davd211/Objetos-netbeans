@@ -30,6 +30,13 @@ public class mainContador {
         System.out.println("c1: " + c1.toString());
         System.out.println("c2: " + c2.toString());
         System.out.println("suma: " + c1.suma(c2));
+        
+        if (c2.equals(c1)) {
+            System.out.println("c1 y c2 son iguales");
+            
+        }else {
+            System.out.println("c1 y c2 no son iguales");
+        }
 
     }
 
