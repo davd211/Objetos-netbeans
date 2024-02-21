@@ -22,16 +22,21 @@ public class mainFecha {
         Scanner sc = new Scanner(System.in);
 
         // Pedir datos por teclado
-        int dia = sc.nextInt();
-        int mes = sc.nextInt();
-        int año = sc.nextInt();
+        
 
         // Crear objeto Fecha
-        Fecha fecha = new Fecha(dia, mes, año);
-        Fecha f2 = new Fecha(dia,mes,año);
+        Fecha fecha = new Fecha(sc.nextInt(), sc.nextInt(), sc.nextInt());
+        Fecha f2 = new Fecha(sc.nextInt(),sc.nextInt(),sc.nextInt());
 
+        
+          if (fecha.equals(f2)){
+        
+            System.out.println("f y f2 son iguales");
+        }else{
+            System.out.println("f y f2 no son iguales");
+        }
         // Comprobar si la fecha es correcta
-        if (fecha.fechaCorrecta()) {
+        if (fecha.fechaCorrecta()==true) {
 
             // Mostrar el día siguiente
             fecha.diaSiguiente();
@@ -40,11 +45,6 @@ public class mainFecha {
             System.out.println("Fecha incorrecta");
         }
         
-        if (fecha.equals(f2)){
-        
-            System.out.println("f y f2 son iguales");
-        }else{
-            System.out.println("f y f2 no son iguales");
-        }
+      
     }
 }

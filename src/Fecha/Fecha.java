@@ -160,27 +160,40 @@ public class Fecha {
 
     @Override
     public String toString() {
-        return dia + " de " + mes + " de " + anno;
+        return "f día siguiente "+ dia + " de " + mes + " de " + anno;
     }
 
     @Override
     public boolean equals(Object obj) {
-        
-        if (obj instanceof  Fecha) {
-            
-           Fecha fechaComparacion =(Fecha)obj;
-            if (this.getDia()==fechaComparacion.getDia()) {
-                return true;
-                
-            }else{
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
             return false;
-            }
-            
-        }return false;
-        
-    
-
-    
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Fecha other = (Fecha) obj;
+        if (this.dia != other.dia) {
+            return false;
+        }
+        if (this.mes != other.mes) {
+            return false;
+        }
+        return this.anno == other.anno;
     }
+
+  
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 13 * hash + this.dia;
+        hash = 13 * hash + this.mes;
+        hash = 13 * hash + this.anno;
+        return hash;
+    }
+
     
 }
