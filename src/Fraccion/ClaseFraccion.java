@@ -34,5 +34,11 @@ public class ClaseFraccion {
         System.out.println("Multiplicacion: " + resultadoM.getNumerador() + "/" + resultadoM.getDenominador());
       
 
+        
+        if (f1.equals(f2)) {
+            System.out.println("f y f2 son iguales");
+        }else{
+            System.out.println("f y f2  no son iguales");
+        }
 }
 }

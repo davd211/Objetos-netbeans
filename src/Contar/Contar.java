@@ -28,7 +28,7 @@ package Contar;
  */
 public class Contar {
 
-    private int contador ;
+    private int contador;
 
     public int getContador() {
         return contador;
@@ -38,60 +38,66 @@ public class Contar {
         this.contador = contador;
     }
 
-  
     public Contar() {
     }
 
     public Contar(int contador) {
         this.contador = contador;
     }
-    
-    
 
     void incrementar(int incremento) { //void quiere decir que no me devuleve nada 
-         this.contador += incremento;
+        this.contador += incremento;
 
-    };
+    }
+
+    ;
 
         
-    void decrementar(int decremento){
-            this.contador -= decremento;
+    void decrementar(int decremento) {
+        this.contador -= decremento;
 
-    };
+    }
+
+    ;
         
      public int suma(Contar cont1) {
         return this.contador + cont1.getContador();
-    };
+    }
+
+    ;
 
     @Override
     public String toString() {
         return "Contar{" + "contador=" + contador + '}';
     }
 
-//    @Override
-//    public boolean equals(Object obj) {
-//        Contar contarComparacion = (Contar)obj;
-//        return this.getClass().equals(contarComparacion.getClass()); 
-//    }
-
     @Override
     public boolean equals(Object obj) {
-        
-        if (obj instanceof Contar ) {
-            Contar contarComparacio = (Contar)obj;
-            if (this.getClass().equals(contarComparacio.getClass())) 
-            {
-                return true;
-            }else{
-                    return false;
-                    }
-            
-        }else {
-        return false;
+        if (this == obj) {
+            return true;
         }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Contar other = (Contar) obj;
+        return this.contador == other.contador;
     }
-     
 
+
+   
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + this.contador;
+        return hash;
+    }
+
+   
     
+   
     
 }

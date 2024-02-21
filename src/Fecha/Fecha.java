@@ -163,4 +163,24 @@ public class Fecha {
         return dia + " de " + mes + " de " + anno;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        
+        if (obj instanceof  Fecha) {
+            
+           Fecha fechaComparacion =(Fecha)obj;
+            if (this.getDia()==fechaComparacion.getDia()) {
+                return true;
+                
+            }else{
+            return false;
+            }
+            
+        }return false;
+        
+    
+
+    
+    }
+    
 }

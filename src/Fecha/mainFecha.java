@@ -28,6 +28,7 @@ public class mainFecha {
 
         // Crear objeto Fecha
         Fecha fecha = new Fecha(dia, mes, año);
+        Fecha f2 = new Fecha(dia,mes,año);
 
         // Comprobar si la fecha es correcta
         if (fecha.fechaCorrecta()) {
@@ -37,6 +38,13 @@ public class mainFecha {
             System.out.println( fecha);
         } else {
             System.out.println("Fecha incorrecta");
+        }
+        
+        if (fecha.equals(f2)){
+        
+            System.out.println("f y f2 son iguales");
+        }else{
+            System.out.println("f y f2 no son iguales");
         }
     }
 }

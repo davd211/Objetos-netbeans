@@ -94,6 +94,13 @@ public class Fraccion {
         return "Fraccion{" + "denominador=" + denominador + ", numerador=" + numerador + '}';
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj); 
+        
+    }
+
+  
    
 
 }

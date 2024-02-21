@@ -4,6 +4,8 @@
  */
 package LIbro;
 
+import java.util.Objects;
+
 /**
  *
  * @author David.P Crea una clase Libro, con los atributos titulo, isbn, autor
@@ -15,39 +17,20 @@ package LIbro;
  */
 public class Libro {
 
-    private String titulo;
-    private String autor;
-    private String isbn;
+    private String titulo, isbn, autor;
     private boolean prestado;
+    private String  estado;
 
     public Libro() {
-        prestado = false;
+        this.prestado = false;
+
     }
 
-    public Libro(String titulo, String autor, String isb) {
+    public Libro(String titulo, String isbn, String autor) {
         this.titulo = titulo;
-        this.autor = autor;
         this.isbn = isbn;
-        prestado = false;
-
-    }
-
-    public void prestamo() {
-        if (!prestado) {
-            prestado = true;
-            System.out.println("Libro prestado correctamente.");
-        } else {
-            System.out.println("El libro ya está prestado.");
-        }
-    }
-
-    public void devolucion() {
-        if (prestado) {
-            prestado = false;
-            System.out.println("Libro devuelto correctamente.");
-        } else {
-            System.out.println("El libro no estaba prestado.");
-        }
+        this.autor = autor;
+        this.prestado = false;
     }
 
     public String getTitulo() {
@@ -58,20 +41,20 @@ public class Libro {
         this.titulo = titulo;
     }
 
-    public String getAutor() {
-        return autor;
-    }
-
-    public void setAutor(String autor) {
-        this.autor = autor;
-    }
-
     public String getIsbn() {
         return isbn;
     }
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
     }
 
     public boolean isPrestado() {
@@ -82,4 +65,73 @@ public class Libro {
         this.prestado = prestado;
     }
 
+    void  préstamo (){
+     this.prestado = true;
+      estado= " está prestado";
+    
+    };
+    
+    void devolución() {
+     this.prestado = false;
+      estado= " está disponible";
+    
+    
+    };
+
+    @Override
+    public String toString() {
+        return "El libro " +  titulo + ", del autor " + autor + " con isbn " + isbn  + estado ;
+    }
+    
+    //El libro La madre de Frankenstein, del autor ALMUDENA GRANDES con isbn 9788490667804 está prestado
+
+   
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 41 * hash + Objects.hashCode(this.titulo);
+        hash = 41 * hash + Objects.hashCode(this.isbn);
+        hash = 41 * hash + Objects.hashCode(this.autor);
+        hash = 41 * hash + (this.prestado ? 1 : 0);
+        hash = 41 * hash + Objects.hashCode(this.estado);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Libro other = (Libro) obj;
+        if (this.prestado != other.prestado) {
+            return false;
+        }
+        if (!Objects.equals(this.titulo, other.titulo)) {
+            return false;
+        }
+        if (!Objects.equals(this.isbn, other.isbn)) {
+            return false;
+        }
+        if (!Objects.equals(this.autor, other.autor)) {
+            return false;
+        }
+        return Objects.equals(this.estado, other.estado);
+    }
+
+   
+    
+    
+
+    
+    
+    
+    
+    
 }
