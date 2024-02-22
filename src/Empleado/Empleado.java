@@ -81,12 +81,48 @@ public class Empleado {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 29 * hash + Objects.hashCode(this.dni);
-        hash = 29 * hash + Objects.hashCode(this.nombre);
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.sueldo) ^ (Double.doubleToLongBits(this.sueldo) >>> 32));
+        int hash = 5;
+        hash = 41 * hash + Objects.hashCode(this.dni);
+        hash = 41 * hash + Objects.hashCode(this.nombre);
+        hash = 41 * hash + (int) (Double.doubleToLongBits(this.sueldo) ^ (Double.doubleToLongBits(this.sueldo) >>> 32));
         return hash;
     }
-    
 
+  
+   
+
+//    @Override
+//    public boolean equals(Object obj) {
+//        if (this == obj) {
+//            return true;
+//        }
+//        if (obj == null) {
+//            return false;
+//        }
+//        if (getClass() != obj.getClass()) {
+//            return false;
+//        }
+//        final Empleado other = (Empleado) obj;
+//        if (Double.doubleToLongBits(this.sueldo) != Double.doubleToLongBits(other.sueldo)) {
+//            return false;
+//        }
+//        if (!Objects.equals(this.dni, other.dni)) {
+//            return false;
+//        }
+//        return Objects.equals(this.nombre, other.nombre);
+//    }
+//
+//   
+//
+//    @Override
+//    public int hashCode() {
+//        int hash = 3;
+//        hash = 29 * hash + Objects.hashCode(this.dni);
+//        hash = 29 * hash + Objects.hashCode(this.nombre);
+//        hash = 29 * hash + (int) (Double.doubleToLongBits(this.sueldo) ^ (Double.doubleToLongBits(this.sueldo) >>> 32));
+//        return hash;
+//    }
+//    
+//
 }
+

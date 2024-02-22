@@ -16,7 +16,7 @@ public class MainEmpleado {
     public static void main(String[] args) {
 
         Empleado e1 = new Empleado();
-        System.out.println("Numero empleados: " + Empleado.getNumEmpleados());
+        System.out.println("Número empleados: " + Empleado.getNumEmpleados());
         Empleado e2 = new Empleado();
         Empleado e3 = new Empleado();
         System.out.println("Numero empleados: " + Empleado.getNumEmpleados());
